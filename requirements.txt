@@ -1,1 +1,3 @@
 discord-rewrite
+aiohttp
+async
