@@ -326,13 +326,13 @@ async def on_message(message):
 		help_embed = discord.Embed(title="Tenor Bot Help", colour=discord.Colour.blue())
 		help_embed.add_field(name="Commands: ",
 		value="`t.search [question] [limit|50]` - searching gif using name or name and limit, default limit is 1\n"
-		"`t.trending [limit|50]` - send a daily gif trend from Tenor\n"
-		"`t.categories [trending, emoji, featured]` - send a top from categories trending, emoji and featured, default is trending\n"
-		"`t.random [question]` - gives you a one random gif\n"
-		"`t.top` - send a top searched from this day\n"
-		"`t.help` - shows all commands on this bot\n"
-		"`t.about` - showing information about this bot\n"
-		"`t.version` - showing current version of this bot"
+		"`tenor.trending [limit|50]` - send a daily gif trend from Tenor\n"
+		"`tenor.categories [trending, emoji, featured]` - send a top from categories trending, emoji and featured, default is trending\n"
+		"`tenor.random [question]` - gives you a one random gif\n"
+		"`tenor.top` - send a top searched from this day\n"
+		"`tenor.help` - shows all commands on this bot\n"
+		"`tenor.about` - showing information about this bot\n"
+		"`tenor.version` - showing current version of this bot"
 		,inline=False)
 		help_embed.set_thumbnail(url="https://i.ibb.co/dKtMKmG/tenor-logo.jpg")
 		help_embed.set_footer(text="You sent requests at {}".format(time), icon_url="https://i.ibb.co/dKtMKmG/tenor-logo.jpg")
@@ -348,7 +348,8 @@ async def on_message(message):
 	if message.content.lower() == "tenor.version":
 		version_embed = discord.Embed(title="Tenor Bot Version", colour=discord.Colour.blue())
 		version_embed.add_field(name="Current Version", value="v1.0", inline=True)
-		version_embed.add_field(name="Update Date", value="09/01/2019", inline=True)
+		version_embed.add_field(name="Update Date", value="16/01/2019", inline=True)
+		version_embed.add_field(name="Changes", value="- Changed a prefix command", inline=True)
 		await message.channel.send(embed=version_embed)
 		await message.channel.send("Please turn on embed links!")
 
