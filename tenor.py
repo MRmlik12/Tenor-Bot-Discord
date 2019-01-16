@@ -14,7 +14,7 @@ apikey = config['Tenor']['key']
 
 @client.event
 async def on_ready():
-	await client.change_presence(game=discord.Game(name="If you need help, type t.help"))
+	await client.change_presence(game=discord.Game(name="If you need help, type tenor.help"))
 	print("Tenor Bot is ready to work")
 
 @client.event
