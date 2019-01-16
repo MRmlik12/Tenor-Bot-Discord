@@ -44,7 +44,7 @@ async def on_guild_remove(guild):
 async def on_message(message):
 
 	#search gifs from tenor
-	if message.content.startswith("t.search"):
+	if message.content.startswith("tenor.search"):
 		message_content = message.content
 		split_message = message_content.split()
 		len_message = int(len(split_message)) - 1
@@ -137,7 +137,7 @@ async def on_message(message):
 			await message.channel.send("{} It's to much gifs in 1 time!".format(message.author.mention))
 	
 	# trending gifs from tenor
-	if message.content.startswith("t.trending"):
+	if message.content.startswith("tenor.trending"):
 		message_trend = message.content
 		join_message = message_trend.split()
 		datetime_now = datetime.datetime.now()
@@ -202,7 +202,7 @@ async def on_message(message):
 					
 
 	# Random gifs from tenor					
-	if message.content.startswith("t.random"):
+	if message.content.startswith("tenor.random"):
 		message_random = message.content
 		split_random = message_random.split()
 		datetime_now = datetime.datetime.now()
@@ -237,7 +237,7 @@ async def on_message(message):
 					await message.channel.send("{} Sorry, but I hasn't found any gif!".format(message.author.mention))
 
 	# A trending gifs from another categories
-	if message.content.startswith("t.categories"):
+	if message.content.startswith("tenor.categories"):
 		message_categories = message.content
 		split_categories = message_categories.split()
 		datetime_now = datetime.datetime.now()
@@ -303,7 +303,7 @@ async def on_message(message):
 					categories_embed.set_thumbnail(url="https://i.ibb.co/dKtMKmG/tenor-logo.jpg")
 					await message.channel.send(embed=categories_embed)
 
-	if message.content.lower() == "t.top":
+	if message.content.lower() == "tenor.top":
 		trendings = "https://api.tenor.com/v1/trending_terms?key={}&limit=3".format(apikey)
 		requests_trendings = requests.get(trendings)
 		datetime_now = datetime.datetime.now()
@@ -320,7 +320,7 @@ async def on_message(message):
 			await message.channel.send(embed=trendings_embed)
 
 	# Sending a help commands
-	if message.content.lower() == "t.help":
+	if message.content.lower() == "tenor.help":
 		datetime_now = datetime.datetime.now()
 		time = datetime_now.strftime("%d/%m/%Y %H:%M:%S")
 		help_embed = discord.Embed(title="Tenor Bot Help", colour=discord.Colour.blue())
@@ -339,13 +339,13 @@ async def on_message(message):
 		await message.channel.send(embed=help_embed)
 
 	# Information about Tenor Bot
-	if message.content.lower() == "t.about":
+	if message.content.lower() == "tenor.about":
 		about_embed = discord.Embed(title="Tenot Bot About", colour=discord.Colour.blue())
 		about_embed.add_field(name="About this bot",
 		value="This bot is searching and showing information about gifs from tenor.com", inline=False)
 		await message.channel.send(embed=about_embed)
 	
-	if message.content.lower() == "t.version":
+	if message.content.lower() == "tenor.version":
 		version_embed = discord.Embed(title="Tenor Bot Version", colour=discord.Colour.blue())
 		version_embed.add_field(name="Current Version", value="v1.0", inline=True)
 		version_embed.add_field(name="Update Date", value="09/01/2019", inline=True)
