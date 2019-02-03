@@ -20,25 +20,10 @@ async def on_ready():
 @client.event
 async def on_guild_join(guild):
 	print("Joined")
-	db = sqlite3.connect('stats.db')
-	cursor = db.cursor()
-	cursor.execute("UPDATE stats SET value=+1 WHERE No=1")
-	db.commit()
-	cursor.execute("UPDATE stats SET value=+1 WHERE No=2")
-	db.commit()
-	db.close()
-
 
 @client.event
 async def on_guild_remove(guild):
 	print("Removed")
-	db = sqlite3.connect('stats.db')
-	cursor = db.cursor()
-	cursor.execute("UPDATE stats SET value=-1 WHERE No=1")
-	db.commit()
-	cursor.execute("UPDATE stats SET value=+1 WHERE No=3")
-	db.commit()
-	db.close()
 
 @client.event
 async def on_message(message):
@@ -343,15 +328,16 @@ async def on_message(message):
 		about_embed = discord.Embed(title="Tenot Bot About", colour=discord.Colour.blue())
 		about_embed.add_field(name="About this bot",
 		value="This bot is searching and showing information about gifs from tenor.com", inline=False)
+		about_embed.add_field(name="Links", value="Bot website: https://discordbots.org/bot/529054239570264084\n"
+		"github repo: https://github.com/MRmlik12/Tenor-Bot-Discord")
 		await message.channel.send(embed=about_embed)
 	
 	if message.content.lower() == "tenor.version":
 		version_embed = discord.Embed(title="Tenor Bot Version", colour=discord.Colour.blue())
-		version_embed.add_field(name="Current Version", value="v1.2", inline=True)
-		version_embed.add_field(name="Update Date", value="16/01/2019", inline=True)
-		version_embed.add_field(name="Changes", value="- Changed a prefix command", inline=True)
+		version_embed.add_field(name="Current Version", value="v1.4", inline=True)
+		version_embed.add_field(name="Update Date", value="3/02/2019", inline=True)
+		version_embed.add_field(name="Changes", value="- Added a new line of description `tenor.about`", inline=True)
 		await message.channel.send(embed=version_embed)
-		await message.channel.send("Please turn on embed links!")
 
 
 # A discord bot token in keys.ini
