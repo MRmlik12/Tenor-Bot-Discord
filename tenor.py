@@ -14,7 +14,8 @@ apikey = config['Tenor']['key']
 
 @client.event
 async def on_ready():
-	await client.change_presence(game=discord.Game(name="If you need help, type tenor.help"))
+	game = discord.Game("If you need help, type tenor.help")
+	await client.change_presence(activity=game)
 	print("Tenor Bot is ready to work")
 
 @client.event
@@ -310,7 +311,7 @@ async def on_message(message):
 		time = datetime_now.strftime("%d/%m/%Y %H:%M:%S")
 		help_embed = discord.Embed(title="Tenor Bot Help", colour=discord.Colour.blue())
 		help_embed.add_field(name="Commands: ",
-		value="`t.search [question] [limit|50]` - searching gif using name or name and limit, default limit is 1\n"
+		value="`tenor.search [question] [limit|50]` - searching gif using name or name and limit, default limit is 1\n"
 		"`tenor.trending [limit|50]` - send a daily gif trend from Tenor\n"
 		"`tenor.categories [trending, emoji, featured]` - send a top from categories trending, emoji and featured, default is trending\n"
 		"`tenor.random [question]` - gives you a one random gif\n"
@@ -334,9 +335,9 @@ async def on_message(message):
 	
 	if message.content.lower() == "tenor.version":
 		version_embed = discord.Embed(title="Tenor Bot Version", colour=discord.Colour.blue())
-		version_embed.add_field(name="Current Version", value="v1.5", inline=True)
-		version_embed.add_field(name="Update Date", value="3/02/2019", inline=True)
-		version_embed.add_field(name="Changes", value="- Added a new line of description `tenor.about`", inline=True)
+		version_embed.add_field(name="Current Version", value="v1.6", inline=True)
+		version_embed.add_field(name="Update Date", value="01/03/2019", inline=True)
+		version_embed.add_field(name="Changes", value="Fixed some bugs :)", inline=True)
 		await message.channel.send(embed=version_embed)
 
 
