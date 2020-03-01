@@ -1,1 +1,1 @@
-worker: python tenor.py
+worker: python3 tenor.py
