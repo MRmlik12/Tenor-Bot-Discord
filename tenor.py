@@ -336,7 +336,7 @@ async def on_message(message):
 	if message.content.lower() == "tenor.version":
 		version_embed = discord.Embed(title="Tenor Bot Version", colour=discord.Colour.blue())
 		version_embed.add_field(name="Current Version", value="v1.6", inline=True)
-		version_embed.add_field(name="Update Date", value="01/03/2019", inline=True)
+		version_embed.add_field(name="Update Date", value="01/03/2020", inline=True)
 		version_embed.add_field(name="Changes", value="Fixed some bugs :)", inline=True)
 		await message.channel.send(embed=version_embed)
 
