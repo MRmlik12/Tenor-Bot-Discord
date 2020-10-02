@@ -1,10 +1,4 @@
-import discord
-import asyncio
-import aiohttp
-import requests
-import configparser
-import datetime
-import sqlite3
+import discord, asyncio, aiohttp, requests, configparser, datetime, sqlite3
 
 config = configparser.ConfigParser()
 config.read('keys.ini')
